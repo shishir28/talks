@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <% include ../../partials/head %>
+
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <form method="post">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="fields" align="left">Transaction :</td>
+                            <td class="fields" align="left">
+                                <input type="text" name="transaction" id="editExpenseTransaction" value="<%=transaction%>">
+                                </input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Date :</td>
+                            <td class="fields" align="left">
+                                <input type="date" name="date" class="date" value="<%=moment(date).format( 'YYYY-MM-DD')%>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Amount :</td>
+                            <td class="fields" align="left">
+                                <input type="number" name="amount" value="<%=amount%>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Category :</td>
+                            <td class="fields" align="left">
+                                <select name="category" id="editExpenseCategory">
+                                    <% categories.forEach(function(category) { %>
+                                        <option value="<%=category._id.toHexString()%>">
+                                            <%=category.name%>
+                                        </option>
+                                        <% }); %>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <hr/>
+                <input type="submit" value="Save" />
+                <input type=button onClick="location.href='/expense'" value='Cancel'>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+</body>
+
+</html>

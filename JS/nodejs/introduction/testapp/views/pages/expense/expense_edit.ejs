@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <form method="post">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="fields" align="right">Transaction :</td>
+                            <td class="fields" align="left">
+                                <input type="text" name="transaction" id="editExpenseTransaction" value="<%=expense.transaction%>">
+                                </input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="right">Date :</td>
+                            <td class="fields" align="left">
+                                <input type="date" name="date" class="date" value="<%=moment(expense.date).format( 'YYYY-MM-DD')%>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="right">Amount :</td>
+                            <td class="fields" align="left">
+                                <input type="number" name="amount" value="<%=expense.amount%>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Category :
+                            </td>
+                            <td class="fields" align="left">
+                                <select name="category" id="editExpenseCategory">
+                                    <% categories.forEach(function(category) { %>
+
+                                        <% if (expense.category==category._id.toHexString()) { %>
+                                            <option value="<%=category._id.toHexString()%>" selected="selected">
+                                                <%=category.name%>
+                                            </option>
+                                            <% } else {%>
+                                                <option value="<%=category._id.toHexString()%> ">
+                                                    <%=category.name%>
+                                                </option>
+
+                                                <% } %>
+                                                    <% }); %>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr/>
+                <input type="submit" value="Save" />
+                <input type=button onClick="location.href='/expense'" value='Cancel'>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+</body>
+
+</html>

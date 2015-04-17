@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body class="container">
+    <header>
+        <% include ../../partials/header %>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <form method="post">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="fields" align="left">Transaction :</td>
+                            <td class="fields" align="left">
+                                <%=expense.transaction %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Date :</td>
+                            <td class="fields" align="left">
+                                <%=moment(expense.date).format( 'L') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Amount :</td>
+                            <td class="fields" align="left">
+                                <%=expense.amount %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Category :</td>
+                            <td class="fields" align="left">
+                                <%=expense.categoryName %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">
+                                <a href="/expenses/<%= expense._id.toHexString() %>/edit">  Edit  <%=expense.transaction %>   </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+               <hr/>
+<input type=button onClick="location.href='/expense'" value='Go Back'>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+</body>
+
+</html>

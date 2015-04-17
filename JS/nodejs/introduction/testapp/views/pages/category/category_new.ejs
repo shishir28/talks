@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <form method="post">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="fields" align="right">Name :</td>
+                            <td class="fields" align="left">
+                                <input type="text" name="name" id="editCategoryName" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="right">Description :</td>
+                            <td class="fields" align="left">
+                                <textarea name="description" rows="2" id="editCategoryDescription"></textarea>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <hr>
+                <input type="submit" value="Save" />
+                <input type=button onClick="location.href='/category'" value='Cancel'>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <div class="jumbotron">
+        <h1>Category</h1>
+        <div class="categories">
+            <%= title %>
+        </div>
+
+    </div>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>

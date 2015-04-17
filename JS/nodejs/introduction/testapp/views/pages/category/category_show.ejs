@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <form method="post">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="fields" align="left">Name :</td>
+                            <td class="fields" align="left">
+                                <%=category.name %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">Description :</td>
+                            <td class="fields" align="left">
+                                <%=category.description %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fields" align="left">
+                                <a href="/categories/<%= category._id.toHexString() %>/edit">
+                       Edit  <%=category.name %>
+                    </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr/>
+                <input type=button onClick="location.href='/category'" value='Go Back'>
+            </form>
+    </main>
+
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+</body>
+
+</html>

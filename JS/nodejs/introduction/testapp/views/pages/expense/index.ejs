@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <form method="post">
+                <table class="expenses" style="width:100%">
+
+                    <tr>
+                        <th>Actions</th>
+                        <th>
+                            Transaction
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                    </tr>
+
+                    <% expenses.forEach(function(expense) { %>
+                        <tr>
+                            <td>
+                                <a href="/expenses/<%= expense._id.toHexString() %>/edit"> Edit </a>
+                                <a href="/expenses/<%= expense._id.toHexString() %>/delete"> Delete </a>
+                            </td>
+                            <td>
+                                <a href="/expenses/<%= expense._id.toHexString() %>">
+                                    <%=expense.transaction %>
+                                </a>
+                            </td>
+                            <td>
+                                <%=moment(expense.date).format( 'L') %>
+                            </td>
+                            <td>
+                                <%=expense.amount %>
+                            </td>
+                            <td>
+                                <%=expense.categoryName %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </table>
+                <hr>
+
+                <input type=button onClick="location.href='/expense/new'" value='Add Expense'>
+
+            </form>
+        </div>
+    </main>
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <% include ../../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <form method="post">
+                <table class="categories" style="width:100%">
+
+                    <tr>
+                        <th>Actions</th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+
+                    <% categories.forEach(function(category) { %>
+                        <tr>
+                            <td>
+                                <a href="/categories/<%= category._id.toHexString() %>/edit"> Edit </a>
+                                <a href="/categories/<%= category._id.toHexString() %>/delete"> Delete </a>
+                            </td>
+                            <td>
+                                <a href="/categories/<%= category._id.toHexString() %>">
+                                    <%=category.name %>
+                                </a>
+                            </td>
+                            <td>
+                                <%=category.description %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </table>
+
+                <hr>
+
+                <input type=button onClick="location.href='/category/new'" value='Add Category'>
+
+            </form>
+        </div>
+    </main>
+    <footer>
+        <% include ../../partials/footer %>
+    </footer>
+</body>
+
+</html>
